@@ -135,29 +135,31 @@ header {
 
 .produtos {
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  justify-content: flex-end;
-  padding-left: 3px;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  overflow: hidden; /* impede scroll indesejado */
 }
 
 .produto {
-  flex: 0 0 147px;
+  flex: 0 0 150px;
   background: #010101;
   padding: 10px;
+  margin: 10px;
   text-align: center;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
-
 .produto-link {
   text-decoration: none;
   color: inherit;
 }
 
 .produto:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  z-index: 2;
 }
 
 .produto img {
@@ -165,6 +167,7 @@ header {
   height: 180px;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.3s ease-in-out;
 }
 
 
