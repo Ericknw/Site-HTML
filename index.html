@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+   <div class="top-bar">
+  <div class="logo">🎮 GameStore</div>
+  <div class="search-wrapper">
+    <input type="text" placeholder="Buscar jogos..." class="search-bar" id="searchInput">
+    <span class="search-icon">🔍</span>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <div class="cart">🛒</div>
+</div>
+
+
+    <nav class="menu">
+      <a href="#">Populares</a>
+      <a href="#">Ofertas</a>
+      <a href="#">Categorias</a>
+      <a href="#">Novidades</a>
+      <a href="#">Promoções</a>
+    </nav>
+  </header>
+
+  <main>
+  <section class="banner-carrossel">
+  <div class="carrossel-container">
+    <img src="imagens/Expedition 33.png" class="card ativo">
+    <img src="imagens/Forza Horizon 5.png" class="card">
+    <img src="imagens/The Last of Us Part 2.png" class="card">
+    <img src="imagens/Starfield.png" class="card">
+    <img src="imagens/God of War.png" class="card">
+  </div>
+</section>
+
+<script>
+  const card = document.querySelectorAll('.carrossel-container .card');
+  let index = 0;
+
+  function atualizarPosicoes() {
+    card.forEach((card, i) => {
+      card.className = 'card'; // reseta
+    });
+
+    for (let i = 0; i < 5; i++) {
+      const pos = (index + i) % card.length;
+      card[pos].classList.add(`pos${i}`);
+    }
+  }
+
+  setInterval(() => {
+    index = (index + 1) % card.length;
+    atualizarPosicoes();
+  }, 5000); // a cada 5 segundos
+  atualizarPosicoes(); // inicial
+</script>
+
+
+    <section class="ofertas">
+      <h3>Ofertas Relâmpago</h3>
+      <div class="produtos">
+        <div class="produto">
+          <a href="jogos/gta5.html" class="produto-link">
+          <img src="imagens/Gta 5.png" alt="GTA V">
+          <p>GTA V</p>
+          <span class="preco">R$ 59,90</span>
+        </div>
+      </a>
+
+        <div class="produto">
+          <a href="jogos/Rdr2.html" class="produto-link">
+          <img src="imagens/Red dead Redemption 2.png" alt="RDR2">
+          <p>Red Dead Redemption 2</p>
+          <span class="preco">R$ 89,90</span>
+        </div>
+      </a>
+
+        <div class="produto">
+          <img src="imagens/God of War.png" alt="God of War">
+          <p>God of War</p>
+          <span class="preco">R$ 49,90</span>
+        </div>
+        <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Ghost of Tsushima.png" alt="GHost of Tsushima">
+          <p>Ghost of Tsushima</p>
+          <span class="preco">R$ 249,90</span>
+        </div>
+        <div class="produtos">
+        <div class="produto">
+          <img src="imagens/The Alters.png.png" alt="The Alters">
+          <p>The Alters</p>
+          <span class="preco">R$ 149,90</span>
+        </div>
+      </div>
+      <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Tetris.png.png" alt="Tetris">
+          <p>Tetris</p>
+          <span class="preco">R$ 29,90</span>
+        </div>
+         <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Need for Speed Underground 2.png" alt="Need for Speed Underground 2">
+          <p>Need For Speed Underground 2</p>
+          <span class="preco">R$ 19,90</span>
+        </div>
+         <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Expedition 33.png" alt="Clair Obscur: Expedition 33">
+          <p>Clair Obscur: Expedition 33</p>
+          <span class="preco">R$ 219,90</span>
+        </div>
+         <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Forza Horizon 5.png" alt="Forza Horizon 5">
+          <p>Forza Horizon 5</p>
+          <span class="preco">R$ 199,90</span>
+        </div>
+         <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Uncharted 4.png" alt="Uncharted 4">
+          <p>Uncharted 4</p>
+          <span class="preco">R$ 149,90</span>
+        </div>
+         <div class="produtos">
+        <div class="produto">
+          <img src="imagens/Gears of War E Day.png" alt="Gears of War E Day">
+          <p>Gears of War E Day</p>
+          <span class="preco">R$ 349,90</span>
+        </div>
+    </section>
+  </main>
+
+
+
+  <footer>
+    <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+  </footer>
+<script>
+    const jogos = [
+      { nome: "Red Dead Redemption 2", preco: "R$ 89,90", imagem: "imagens/Red dead Redemption 2.png", link: "jogos/rdr2.html"},
+      { nome: "Resident Evil Village", preco: "R$ 149,90", imagem: "imagens/Resident Evil Village.png", link: "jogos/REVillage.html"},
+      { nome: "God of War", preco: "R$ 49,90", imagem: "imagens/God of War.png", link: "jogos/GOW.html" },
+      { nome: "GTA V", preco: "R$ 59,90", imagem: "imagens/GTA 5.png", link: "jogos/gta5.html" },
+      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png" },
+      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png" },
+      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png" },
+      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png" },
+      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png" },
+      { nome: "Gears of War E Day", preco: "R$ 349,90", imagem: "imagens/Gears of War E Day.png" },
+      { nome: "Ghost of Tsushima", preco: "R$ 249,90", imagem: "imagens/Ghost of Tsushima.png" },
+      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png" }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", function () {
+      const termo = this.value.toLowerCase();
+      searchResults.innerHTML = "";
+
+      if (termo.length === 0) {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      const encontrados = jogos.filter(jogo =>
+        jogo.nome.toLowerCase().includes(termo)
+      );
+
+      if (encontrados.length > 0) {
+        encontrados.forEach(jogo => {
+          const div = document.createElement("div");
+
+          const img = document.createElement("img");
+          img.src = jogo.imagem;
+          img.alt = jogo.nome;
+
+          const span = document.createElement("span");
+          span.textContent = `${jogo.nome} - ${jogo.preco}`;
+
+          div.appendChild(img);
+          div.appendChild(span);
+
+          // Redireciona ao clicar
+          div.addEventListener("click", function () {
+          window.location.href = jogo.link;
+});
+
+searchResults.appendChild(div);
+
+        });
+        searchResults.style.display = "block";
+      } else {
+        searchResults.innerHTML = "<div>Nenhum jogo encontrado</div>";
+        searchResults.style.display = "block";
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
