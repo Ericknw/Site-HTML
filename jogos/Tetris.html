@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Red Dead Redemption 2</title>
+  <title>Tetris</title>
   <style>
     body {
       background-color: #111;
@@ -103,35 +103,35 @@
 </head>
 <body>
 
-  <h1 style="padding: 20px;">Red Dead Redemption 2</h1>
+  <h1 style="padding: 20px;">Tetris</h1>
 
   <div class="container">
     <div class="main-content" style="height: 700px;">
-      <img src="Banners/RDR2Banner.jpg" class="main-banner active" id="banner">
+      <img src="Banners/TetrisBanner.jpg" class="main-banner active" id="banner">
       <video id="trailer" controls>
-        <source src="videos/Red Dead Redemption 2 Trailer.mp4" type="video/mp4">
+        <source src="videos/Tetris Trailer.mp4" type="video/mp4">
         Seu navegador não suporta vídeo.
       </video>
 
       <div class="thumbnails">
-        <img src="Banners/RDR2M1.jpg" onclick="changeBanner('Banners/RDR2M1.jpg')">
-        <img src="Banners/RDR2M2.jpg" onclick="changeBanner('Banners/RDR2M2.jpg')">
-        <img src="Banners/RDR2M3.jpg" onclick="changeBanner('Banners/RDR2M3.jpg')">
-        <img src="Banners/RDR2M4.jpg" onclick="changeBanner('Banners/RDR2M4.jpg')">
+        <img src="Banners/TetrisM1.jpg" onclick="changeBanner('Banners/TetrisM1.jpg')">
+        <img src="Banners/TetrisM2.png" onclick="changeBanner('Banners/TetrisM2.png')">
+        <img src="Banners/TetrisM3.webp" onclick="changeBanner('Banners/TetrisM3.webp')">
+        <img src="Banners/TetrisM4.jpg" onclick="changeBanner('Banners/TetrisM4.jpg')">
       </div>
     </div>
 
     <div class="side-panel">
-      <div class="price">R$ 89,90</div>
+      <div class="price">R$ 29,90</div>
       <button class="buy-btn">Comprar</button>
       <button class="cart-btn">Adicionar ao carrinho</button>
 
       <div class="details">
-        <p><strong>Desenvolvedora:</strong> Rockstar North</p>
-        <p><strong>Distribuidora:</strong> Rockstar Games</p>
-        <p><strong>Lançamento:</strong> 26/10/2018</p>
-        <p><strong>Plataformas:</strong> Playstation, Xbox, PC</p>
-        <img src="Banners/RDR2Logo.png" alt="Logo RDR2" class="game-logo">
+        <p><strong>Desenvolvedora:</strong> Alexey Pajitnov</p>
+        <p><strong>Distribuidora:</strong> Alexey Pajitnov</p>
+        <p><strong>Lançamento:</strong> 06/06/1984</p>
+        <p><strong>Plataformas:</strong> Playstation, Xbox, PC, Nintendo Switch</p>
+        <img src="Banners/TetrisLogo.png" alt="Logo Tetris" class="game-logo">
       </div>
     </div>
   </div>
@@ -141,10 +141,10 @@
     const video = document.getElementById('trailer');
 
     const thumbnails = [
-      'Banners/RDR2M1.jpg',
-      'Banners/RDR2M2.jpg',
-      'Banners/RDR2M3.jpg',
-      'Banners/RDR2M4.jpg'
+      'Banners/TetrisM1.jpg',
+      'Banners/TetrisM2.png',
+      'Banners/TetrisM3.webp',
+      'Banners/TetrisM4.jpg'
     ];
 
     let slideshowIndex = 0;
