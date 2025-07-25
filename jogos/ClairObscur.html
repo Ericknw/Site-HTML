@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Clair Obscur: Expedition 33</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    .main-content {
+      flex: 3;
+      position: relative;
+    }
+
+    .main-banner, #trailer {
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .main-banner.active,
+    #trailer.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 720px;
+    }
+
+    .thumbnails img {
+      width: 100px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .thumbnails img:hover {
+      transform: scale(1.1);
+    }
+
+    .side-panel {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .price {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn, .cart-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .buy-btn {
+      background-color: orange;
+      color: #000;
+    }
+
+    .cart-btn {
+      background-color: #333;
+      color: white;
+    }
+
+    .details {
+      margin-top: 20px;
+    }
+
+    .game-logo {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="padding: 20px;">Clair Obscur: Expedition 33</h1>
+
+  <div class="container">
+    <div class="main-content" style="height: 700px;">
+      <img src="Banners/COE33Banner.jpg" class="main-banner active" id="banner">
+      <video id="trailer" controls>
+        <source src="videos/Clair Obscur： Expedition 33 Trailer.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+
+      <div class="thumbnails">
+        <img src="Banners/COE33M1.webp" onclick="changeBanner('Banners/COE33M1.webp')">
+        <img src="Banners/COE33M2.avif" onclick="changeBanner('Banners/COE33M2.avif')">
+        <img src="Banners/COE33M3.webp" onclick="changeBanner('Banners/COE33M3.webp')">
+        <img src="Banners/COE33M4.jpg" onclick="changeBanner('Banners/COE33M4.jpg')">
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="price">R$ 219,90</div>
+      <button class="buy-btn">Comprar</button>
+      <button class="cart-btn">Adicionar ao carrinho</button>
+
+      <div class="details">
+        <p><strong>Desenvolvedora:</strong> Sandfall Interactive</p>
+        <p><strong>Distribuidora:</strong> Kepler Interactive</p>
+        <p><strong>Lançamento:</strong> 24/04/2025</p>
+        <p><strong>Plataformas:</strong> Playstation, Xbox, PC</p>
+        <img src="Banners/COE33Logo.png" alt="Logo COE33" class="game-logo">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const banner = document.getElementById('banner');
+    const video = document.getElementById('trailer');
+
+    const thumbnails = [
+      'Banners/COE33M1.webp',
+      'Banners/COE33M2.avif',
+      'Banners/COE33M3.webp',
+      'Banners/COE33M4.jpg'
+    ];
+
+    let slideshowIndex = 0;
+    let slideshowInterval;
+
+    function showBanner() {
+      banner.classList.add('active');
+      video.classList.remove('active');
+    }
+
+    function showVideo() {
+      banner.classList.remove('active');
+      video.classList.add('active');
+    }
+
+    function changeBanner(src) {
+      banner.src = src;
+      showBanner();
+      clearInterval(slideshowInterval);
+    }
+
+    function startSlideshow() {
+      slideshowInterval = setInterval(() => {
+        banner.src = thumbnails[slideshowIndex];
+        showBanner();
+        slideshowIndex = (slideshowIndex + 1) % thumbnails.length;
+      }, 10000);
+    }
+
+    // Etapas: banner inicial → vídeo → slideshow
+    setTimeout(() => {
+      showVideo();
+      video.play();
+
+      video.onended = () => {
+        slideshowIndex = 0;
+        showBanner();
+        banner.src = thumbnails[slideshowIndex];
+        slideshowIndex++;
+        startSlideshow();
+      };
+    }, 10000);
+  </script>
+
+</body>
+</html>
