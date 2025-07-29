@@ -4,12 +4,182 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameStore</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos básicos */
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      color: #333;
+    }
+
+    header {
+      color: white;
+  }
+
+    .top-bar {
+     display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #222;
+      padding: 10px 20px;
+      position: relative;
+    } 
+
+   .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      width: 300px;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      color: #555;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+      display: none;
+    }
+
+    .search-results div {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .search-results div:last-child {
+      border-bottom: none;
+    }
+
+    .search-results img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    .cart {
+      font-size: 24px;
+    }
+
+    .menu {
+      background-color: #ff6a3d;
+      padding: 10px 0;
+      margin-top: 1px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 15px;
+      font-size: 16px;
+    }
+
+    .menu a:hover {
+      background-color: #555;
+    }
+
+    /* Layout principal */
+    .main-content {
+      display: flex;
+      padding: 20px;
+    }
+
+    .filters {
+      width: 200px;
+      margin-right: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .filters h3 {
+      margin-top: 0;
+      color: #555;
+    }
+
+    .filters label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .game-list {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+      gap: 20px;
+    }
+
+    .game-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .game-card h4 {
+      margin: 15px 0 5px;
+      color: #333;
+    }
+
+    .game-card p {
+      color: #007bff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
    <div class="top-bar">
-  <div class="logo">🎮 GameStore</div>
+  <a href="index.html" class="logo">🎮 GameStore</a>
   <div class="search-wrapper">
     <input type="text" placeholder="Buscar jogos..." class="search-bar" id="searchInput">
     <span class="search-icon">🔍</span>
@@ -28,152 +198,126 @@
     </nav>
   </header>
 
-  <main>
-  <section class="banner-carrossel">
-  <div class="carrossel-container">
-    <img src="imagens/Expedition 33.png" class="card ativo">
-    <img src="imagens/Forza Horizon 5.png" class="card">
-    <img src="imagens/The Last of Us Part 2.png" class="card">
-    <img src="imagens/Starfield.png" class="card">
-    <img src="imagens/God of War.png" class="card">
+  <div class="main-content">
+    <aside class="filters">
+      <h3>Filtros</h3>
+      <div>
+        <h4>Preço</h4>
+        <label><input type="radio" name="price" value="all" checked> Todos</label>
+        <label><input type="radio" name="price" value="under50"> Até R$ 50</label>
+        <label><input type="radio" name="price" value="50-100"> R$ 50 - R$ 100</label>
+        <label><input type="radio" name="price" value="over100"> Acima de R$ 100</label>
+      </div>
+      <div>
+        <h4>Estilo do Jogo</h4>
+        <label><input type="checkbox" name="genre" value="action"> Ação</label>
+        <label><input type="checkbox" name="genre" value="adventure"> Aventura</label>
+        <label><input type="checkbox" name="genre" value="rpg"> RPG</label>
+        <label><input type="checkbox" name="genre" value="sports"> Esportes</label>
+        <label><input type="checkbox" name="genre" value="strategy"> Estratégia</label>
+      </div>
+    </aside>
+
+    <section class="game-list" id="gameList">
+      <!-- Jogos serão carregados aqui pelo JavaScript -->
+    </section>
   </div>
-</section>
-
-<script>
-  const card = document.querySelectorAll('.carrossel-container .card');
-  let index = 0;
-
-  function atualizarPosicoes() {
-    card.forEach((card, i) => {
-      card.className = 'card'; // reseta
-    });
-
-    for (let i = 0; i < 5; i++) {
-      const pos = (index + i) % card.length;
-      card[pos].classList.add(`pos${i}`);
-    }
-  }
-
-  setInterval(() => {
-    index = (index + 1) % card.length;
-    atualizarPosicoes();
-  }, 5000); // a cada 5 segundos
-  atualizarPosicoes(); // inicial
-</script>
-
-
-    <section class="ofertas">
-  <h3>Ofertas Relâmpago</h3>
-  <div class="produtos">
-    <div class="produto">
-      <a href="jogos/gta5.html" class="produto-link">
-        <img src="imagens/Gta 5.png" alt="GTA V">
-        <p>GTA V</p>
-        <span class="preco">R$ 59,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/rdr2.html" class="produto-link">
-        <img src="imagens/Red dead Redemption 2.png" alt="RDR2">
-        <p>Red Dead Redemption 2</p>
-        <span class="preco">R$ 89,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/GOW.html" class="produto-link">
-        <img src="imagens/God of War.png" alt="God of War">
-        <p>God of War</p>
-        <span class="preco">R$ 49,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/GOT.html" class="produto-link">
-        <img src="imagens/Ghost of Tsushima.png" alt="Ghost of Tsushima">
-        <p>Ghost of Tsushima</p>
-        <span class="preco">R$ 249,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/TheAlters.html" class="produto-link">
-      <img src="imagens/The Alters.png" alt="The Alters">
-      <p>The Alters</p>
-      <span class="preco">R$ 149,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/Tetris.html" class="produto-link">
-      <img src="imagens/Tetris.png" alt="Tetris">
-      <p>Tetris</p>
-      <span class="preco">R$ 29,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/NFSU2.html" class="produto-link">
-      <img src="imagens/Need for Speed Underground 2.png" alt="Need for Speed Underground 2">
-      <p>Need For Speed Underground 2</p>
-      <span class="preco">R$ 19,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/ClairObscur.html" class="produto-link">
-      <img src="imagens/Expedition 33.png" alt="Clair Obscur: Expedition 33">
-      <p>Clair Obscur: Expedition 33</p>
-      <span class="preco">R$ 219,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/FH5.html" class="produto-link">
-      <img src="imagens/Forza Horizon 5.png" alt="Forza Horizon 5">
-      <p>Forza Horizon 5</p>
-      <span class="preco">R$ 199,90</span>
-      </a>
-    </div>
-
-    <div class="produto">
-      <a href="jogos/Uncharted4.html" class="produto-link">
-      <img src="imagens/Uncharted 4.png" alt="Uncharted 4">
-      <p>Uncharted 4</p>
-      <span class="preco">R$ 149,90</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-  </main>
-
-
 
   <footer>
     <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
   </footer>
 <script>
     const jogos = [
-      { nome: "Red Dead Redemption 2", preco: "R$ 89,90", imagem: "imagens/Red dead Redemption 2.png", link: "jogos/rdr2.html" },
-      { nome: "The Last of Us Part 2", preco: "R$ 99,90", imagem: "imagens/The Last of Us Part 2.png", link: "jogos/TLOU2.html" },
-      { nome: "Starfield", preco: "R$ 199,90", imagem: "imagens/Starfield.png", link: "jogos/Starfield.html" },
-      { nome: "Ghost of Tsushima", preco: "R$ 249,90", imagem: "imagens/Ghost of Tsushima.png", link: "jogos/GOT.html" },
-      { nome: "Resident Evil Village", preco: "R$ 149,90", imagem: "imagens/Resident Evil Village.png", link: "jogos/REVillage.html"},
-      { nome: "God of War", preco: "R$ 49,90", imagem: "imagens/God of War.png", link: "jogos/GOW.html" },
-      { nome: "GTA V", preco: "R$ 59,90", imagem: "imagens/GTA 5.png", link: "jogos/gta5.html" },
-      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png" },
-      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png" },
-      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png" },
-      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png" },
-      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png" },      
-      { nome: "Ghost of Tsushima", preco: "R$ 249,90", imagem: "imagens/Ghost of Tsushima.png" },
-      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png" }
+      { nome: "Red Dead Redemption 2", preco: "R$ 89,90", imagem: "imagens/Red dead Redemption 2.png", link: "jogos/rdr2.html", estilo: ["acao", "aventura"] },
+      { nome: "The Last of Us Part 2", preco: "R$ 99,90", imagem: "imagens/The Last of Us Part 2.png", link: "jogos/TLOU2.html", estilo: ["acao", "aventura"] },
+      { nome: "Starfield", preco: "R$ 199,90", imagem: "imagens/Starfield.png", link: "jogos/Starfield.html", estilo: ["rpg", "aventura"] },
+      { nome: "Ghost of Tsushima", preco: "R$ 249,90", imagem: "imagens/Ghost of Tsushima.png", link: "jogos/GOT.html", estilo: ["acao", "aventura"] },
+      { nome: "Resident Evil Village", preco: "R$ 149,90", imagem: "imagens/Resident Evil Village.png", link: "jogos/REVillage.html", estilo: ["acao", "aventura"]},
+      { nome: "God of War", preco: "R$ 49,90", imagem: "imagens/God of War.png", link: "jogos/GOW.html", estilo: ["acao", "aventura"] },
+      { nome: "GTA V", preco: "R$ 59,90", imagem: "imagens/GTA 5.png", link: "jogos/gta5.html", estilo: ["acao", "aventura"] },
+      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png", estilo: ["estrategia"] },
+      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png", estilo: ["esportes"] },
+      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png", estilo: ["esportes"] },
+      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png", estilo: ["aventura"] },
+      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png", estilo: ["acao", "aventura"] },      
+      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png", estilo: ["rpg", "aventura"] }
     ];
 
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
+    const gameList = document.getElementById("gameList");
+    const priceFilters = document.querySelectorAll('input[name="price"]');
+    const genreFilters = document.querySelectorAll('input[name="genre"]');
+
+    function formatPrice(priceStr) {
+      return parseFloat(priceStr.replace('R$', '').replace(',', '.').trim());
+    }
+
+    function displayGames(gamesToDisplay) {
+      gameList.innerHTML = "";
+      gamesToDisplay.forEach(jogo => {
+        const gameCard = document.createElement("div");
+        gameCard.classList.add("game-card");
+        gameCard.innerHTML = `
+          <img src="${jogo.imagem}" alt="${jogo.nome}">
+          <h4>${jogo.nome}</h4>
+          <p>${jogo.preco}</p>
+        `;
+        gameCard.addEventListener("click", () => {
+          if (jogo.link) {
+            window.location.href = jogo.link;
+          } else {
+            alert('Link para o jogo não disponível.');
+          }
+        });
+        gameList.appendChild(gameCard);
+      });
+    }
+
+    function applyFilters() {
+      let filteredGames = [...jogos];
+
+      // Filtrar por preço
+      const selectedPriceFilter = document.querySelector('input[name="price"]:checked').value;
+      if (selectedPriceFilter !== "all") {
+        filteredGames = filteredGames.filter(jogo => {
+          const price = formatPrice(jogo.preco);
+          if (selectedPriceFilter === "under50") return price <= 50;
+          if (selectedPriceFilter === "50-100") return price > 50 && price <= 100;
+          if (selectedPriceFilter === "over100") return price > 100;
+          return true;
+        });
+      }
+
+      // Filtrar por estilo
+      const selectedGenres = Array.from(genreFilters)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+      if (selectedGenres.length > 0) {
+        filteredGames = filteredGames.filter(jogo => 
+          jogo.estilo && jogo.estilo.some(estilo => {
+            const estiloMap = {
+              'acao': 'action',
+              'aventura': 'adventure', 
+              'rpg': 'rpg',
+              'esportes': 'sports',
+              'estrategia': 'strategy'
+            };
+            return selectedGenres.includes(estiloMap[estilo]);
+          })
+        );
+      }
+
+      displayGames(filteredGames);
+    }
+
+    // Event Listeners para filtros
+    priceFilters.forEach(filter => filter.addEventListener("change", applyFilters));
+    genreFilters.forEach(filter => filter.addEventListener("change", applyFilters));
+
+    // Inicializar exibição dos jogos
+    displayGames(jogos);
 
     searchInput.addEventListener("input", function () {
       const termo = this.value.toLowerCase();
