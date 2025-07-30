@@ -36,6 +36,11 @@
   color: white;
   text-decoration: none;
 }
+    .acoes {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .search-wrapper {
       position: relative;
@@ -48,7 +53,8 @@
       border: none;
       border-radius: 1px;
       width: 300px;
-      margin-left: 360px;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .search-icon {
@@ -181,15 +187,20 @@
 </head>
 <body>
   <header>
-   <div class="top-bar">
+  <div class="top-bar">
   <a href="index.html" class="logo">🎮 GameStore</a>
-  <div class="search-wrapper">
-    <input type="text" placeholder="Buscar jogos..." class="search-bar" id="searchInput">
-    <span class="search-icon">🔍</span>
-    <div class="search-results" id="searchResults"></div>
+
+  <!-- Agrupe pesquisa + carrinho -->
+  <div class="acoes">
+    <div class="search-wrapper">
+      <input type="text" placeholder="Buscar jogos..." class="search-bar" id="searchInput">
+      <span class="search-icon">🔍</span>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <div class="cart">🛒</div>
   </div>
-  <div class="cart">🛒</div>
 </div>
+
 
 
     <nav class="menu">
