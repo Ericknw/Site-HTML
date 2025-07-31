@@ -12,9 +12,11 @@
   box-sizing: border-box;
 }
     body {
+      display: flex;
+      flex-direction: column;
       font-family: Arial, sans-serif;
       background: #000000;
-      color: #333;
+      color: #ffffff;
     }
 
     header {
@@ -120,6 +122,7 @@
 
     /* Layout principal */
     .main-content {
+      flex: 1;
       display: flex;
       padding: 20px;
     }
@@ -127,7 +130,7 @@
     .filters {
       width: 200px;
       margin-right: 20px;
-      background-color: #fff;
+      background-color: #141414;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -135,7 +138,7 @@
 
     .filters h3 {
       margin-top: 0;
-      color: #555;
+      color: #ffffff;
     }
 
     .filters label {
@@ -151,13 +154,23 @@
     }
 
     .game-card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      padding-bottom: 15px;
-    }
+  background-color: #141414;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 15px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+
 
     .game-card img {
       width: 100%;
@@ -167,11 +180,11 @@
 
     .game-card h4 {
       margin: 15px 0 5px;
-      color: #333;
+      color: #ffffff;
     }
 
     .game-card p {
-      color: #007bff;
+      color: #e7461e;
       font-weight: bold;
       margin-bottom: 10px;
     }
@@ -249,12 +262,12 @@
       { nome: "Resident Evil Village", preco: "R$ 149,90", imagem: "imagens/Resident Evil Village.png", link: "jogos/REVillage.html", estilo: ["acao", "aventura"]},
       { nome: "God of War", preco: "R$ 49,90", imagem: "imagens/God of War.png", link: "jogos/GOW.html", estilo: ["acao", "aventura"] },
       { nome: "GTA V", preco: "R$ 59,90", imagem: "imagens/GTA 5.png", link: "jogos/gta5.html", estilo: ["acao", "aventura"] },
-      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png", estilo: ["estrategia"] },
-      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png", estilo: ["esportes"] },
-      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png", estilo: ["esportes"] },
-      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png", estilo: ["aventura"] },
-      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png", estilo: ["acao", "aventura"] },      
-      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png", estilo: ["rpg", "aventura"] }
+      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png", link:"jogos/Tetris.html", estilo: ["estrategia"] },
+      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png", link: "jogos/NFSU2.html", estilo: ["esportes"] },
+      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png", link: "jogos/FH5.html", estilo: ["esportes"] },
+      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png", link: "jogos/TheAlters.html", estilo: ["aventura"] },
+      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png", link: "jogos/Uncharted4.html", estilo: ["acao", "aventura"] },      
+      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png", link: "jogos/ClairObscur.html", estilo: ["rpg", "aventura"] }
     ];
 
     const searchInput = document.getElementById("searchInput");
