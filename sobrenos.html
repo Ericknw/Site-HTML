@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameStore - Sobre Nós</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: #000000;
+      color: #ffffff;
+    }
+    header {
+      color: white;
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #222;
+      padding: 10px 20px;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+    .acoes {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-bar {
+      padding: 10px;
+      border: none;
+      width: 300px;
+    
+                
+    }
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      color: #555;
+    }
+    .search-results {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #000000;
+      color: #ffffff;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: none;
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .search-results div {
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 10px;
+    }
+    
+    .search-results img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+    .cart {
+      font-size: 24px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ff6a3d;
+      padding: 10px 0;
+    }
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 15px;
+      font-size: 16px;
+    }
+    .menu a:hover {
+      background-color: #555;
+    }
+
+    /* Sobre Nós */
+    .sobre-nos {
+      max-width: 900px;
+      margin: 60px auto 20px auto;
+      padding: 20px;
+      background-color: #141414;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      line-height: 1.6;
+    }
+    .sobre-nos h1 {
+      color: #ff6a3d;
+      margin-bottom: 20px;
+      font-size: 2em;
+      text-align: center;
+    }
+    .sobre-nos p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      text-align: justify;
+    }
+
+    /* Tópicos */
+    .topicos {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 40px auto;
+      gap: 20px;
+    }
+    .topico {
+      background-color: #141414;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1 1 250px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .topico img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    .topico p {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <a href="index.html" class="logo">🎮 GameStore</a>
+      <div class="acoes">
+        <div class="search-wrapper">
+          <input type="text" placeholder="Buscar jogos..." class="search-bar" id="searchInput">
+          <span class="search-icon">🔍</span>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="cart">🛒</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="populares.html"><b>Populares</b></a>
+      <a href="sobrenos.html"><b>Sobre Nós</b></a>
+      <a href="contato.html"><b>Contato</b></a>
+      <a href="#"><b>Novidades</b></a>
+      <a href="#"><b>Promoções</b></a>
+    </nav>
+  </header>
+
+  <section class="topicos">
+    <div class="topico">
+      <img src="imagens/controle.png" alt="Controle de videogame">
+      <p>Se divirta com jogos de alta qualidade com seus amigos!</p>
+    </div>
+    <div class="topico">
+      <img src="imagens/giftcard.png" alt="Cartão Presente">
+      <p>Abasteça seu hobby com cartões presente e tenha uma melhor experiência</p>
+    </div>
+    <div class="topico">
+      <img src="imagens/desconto.png" alt="Promoções e descontos">
+      <p>Nossa loja contém um grande número de promoções, cashback e descontos exclusivos</p>
+    </div>
+  </section>
+
+  <section class="sobre-nos">
+    <h1>Sobre Nós</h1>
+    <p>Bem-vindo à <strong>GameStore</strong>, o seu destino definitivo para jogos digitais. Fundada por apaixonados por games, nossa missão é oferecer uma experiência única para jogadores de todas as idades e estilos.</p>
+    <p>Na GameStore, trabalhamos para trazer os títulos mais populares, lançamentos exclusivos e promoções imperdíveis. Nossa equipe é formada por especialistas que entendem o que você procura: qualidade, preço justo e atendimento de primeira.</p>
+    <p>Seja você fã de ação, aventura, RPG, corrida ou estratégia, aqui você encontra tudo em um só lugar. Estamos sempre atentos às novidades do mercado para garantir que você tenha acesso ao melhor do universo gamer.</p>
+    <p>Obrigado por fazer parte da nossa comunidade. Continue explorando, jogando e se divertindo com a gente!</p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 GameStore. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const jogos = [
+      { nome: "Red Dead Redemption 2", preco: "R$ 89,90", imagem: "imagens/Red dead Redemption 2.png", link: "jogos/rdr2.html" },
+      { nome: "The Last of Us Part 2", preco: "R$ 99,90", imagem: "imagens/The Last of Us Part 2.png", link: "jogos/TLOU2.html" },
+      { nome: "Starfield", preco: "R$ 199,90", imagem: "imagens/Starfield.png", link: "jogos/Starfield.html" },
+      { nome: "Ghost of Tsushima", preco: "R$ 249,90", imagem: "imagens/Ghost of Tsushima.png", link: "jogos/GOT.html" },
+      { nome: "Resident Evil Village", preco: "R$ 149,90", imagem: "imagens/Resident Evil Village.png", link: "jogos/REVillage.html"},
+      { nome: "God of War", preco: "R$ 49,90", imagem: "imagens/God of War.png", link: "jogos/GOW.html" },
+      { nome: "GTA V", preco: "R$ 59,90", imagem: "imagens/GTA 5.png", link: "jogos/gta5.html" },
+      { nome: "Tetris", preco: "R$ 29,90", imagem: "imagens/Tetris.png" },
+      { nome: "Need For Speed Underground 2", preco: "R$ 19,90", imagem: "imagens/Need for Speed Underground 2.png" },
+      { nome: "Forza Horizon 5", preco: "R$ 199,90", imagem: "imagens/Forza Horizon 5.png" },
+      { nome: "The Alters", preco: "R$ 149,90", imagem: "imagens/The Alters.png" },
+      { nome: "Uncharted 4", preco: "R$ 149,90", imagem: "imagens/Uncharted 4.png" },      
+      { nome: "Clair Obscur: Expedition 33", preco: "R$ 219,90", imagem: "imagens/Expedition 33.png" }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", function () {
+      const termo = this.value.toLowerCase();
+      searchResults.innerHTML = "";
+
+      if (termo.length === 0) {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      const encontrados = jogos.filter(jogo =>
+        jogo.nome.toLowerCase().includes(termo)
+      );
+
+      if (encontrados.length > 0) {
+        encontrados.forEach(jogo => {
+          const div = document.createElement("div");
+
+          const img = document.createElement("img");
+          img.src = jogo.imagem;
+          img.alt = jogo.nome;
+
+          const span = document.createElement("span");
+          span.textContent = `${jogo.nome} - ${jogo.preco}`;
+
+          div.appendChild(img);
+          div.appendChild(span);
+
+          div.addEventListener("click", function () {
+            window.location.href = jogo.link;
+          });
+
+          searchResults.appendChild(div);
+        });
+        searchResults.style.display = "block";
+      } else {
+        searchResults.innerHTML = "<div>Nenhum jogo encontrado</div>";
+        searchResults.style.display = "block";
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
